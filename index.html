@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signal AI Media</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #070712;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      min-height: 100vh;
+      padding: 60px 8%;
+      display: flex;
+      align-items: center;
+      background:
+        radial-gradient(circle at top right, #4f46e5, transparent 35%),
+        radial-gradient(circle at bottom left, #9333ea, transparent 30%),
+        #070712;
+    }
+
+    .hero {
+      max-width: 1000px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid #818cf8;
+      border-radius: 999px;
+      color: #c7d2fe;
+      margin-bottom: 25px;
+      background: rgba(129,140,248,.12);
+    }
+
+    h1 {
+      font-size: clamp(3rem, 8vw, 6rem);
+      line-height: 1;
+      margin-bottom: 25px;
+    }
+
+    h1 span {
+      color: #818cf8;
+    }
+
+    .subtitle {
+      font-size: 1.35rem;
+      max-width: 800px;
+      color: #d1d5db;
+      margin-bottom: 35px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .btn {
+      padding: 15px 26px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: bold;
+      color: white;
+    }
+
+    .primary { background: #6366f1; }
+    .secondary { border: 1px solid #6366f1; }
+
+    .player {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 25px;
+      border-radius: 24px;
+      max-width: 600px;
+      backdrop-filter: blur(10px);
+    }
+
+    audio { width: 100%; margin-top: 15px; }
+
+    section {
+      padding: 90px 8%;
+      max-width: 1300px;
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: 2.6rem;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: #cbd5e1;
+      max-width: 850px;
+      margin: 0 auto 50px;
+      font-size: 1.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: 28px;
+      border-radius: 22px;
+    }
+
+    .card h3 {
+      color: #a5b4fc;
+      margin-bottom: 12px;
+      font-size: 1.35rem;
+    }
+
+    .card p, .card li {
+      color: #d1d5db;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-top: 10px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .slot {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 20px;
+      padding: 22px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+
+    .slot strong {
+      color: #818cf8;
+    }
+
+    form {
+      max-width: 700px;
+      margin: auto;
+      display: grid;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 16px;
+      border-radius: 14px;
+      border: none;
+      background: rgba(255,255,255,.1);
+      color: white;
+      font-size: 1rem;
+    }
+
+    textarea { min-height: 120px; }
+
+    button {
+      padding: 16px;
+      border: none;
+      border-radius: 14px;
+      background: #6366f1;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    footer {
+      padding: 35px;
+      text-align: center;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255,255,255,.1);
+    }
+
+    @media (max-width: 700px) {
+      .slot { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="hero">
+    <div class="badge">IA · STREAMING · MONETIZACIÓN · 24/7</div>
+
+    <h1>SIGNAL <span>AI MEDIA</span></h1>
+
+    <p class="subtitle">
+      Plataforma autónoma de medios impulsada por inteligencia artificial.
+      No es una simple radio online: es un ecosistema capaz de crear música,
+      locutores, programas, anuncios, clips y contenido multimedia de forma automática.
+    </p>
+
+    <div class="buttons">
+      <a href="#demo" class="btn primary">Escuchar demo</a>
+      <a href="#plataforma" class="btn secondary">Ver plataforma</a>
+    </div>
+
+    <div class="player" id="demo">
+      <h2>Demo en directo</h2>
+      <p>Emisión conectada al servidor Icecast de la máquina virtual.</p>
+
+      <audio controls>
+        <source src="https://fits-prot-employment-feelings.trycloudflare.com/live" type="audio/ogg">
+        Tu navegador no soporta audio HTML5.
+      </audio>
+    </div>
+  </div>
+</header>
+
+<section id="plataforma">
+  <h2 class="section-title">Una plataforma, no una radio</h2>
+  <p class="section-desc">
+    El objetivo es crear un sistema operativo de medios autónomos donde la IA actúe
+    como productora, locutora, DJ, editora, estratega de monetización y analista de audiencia.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Generación musical IA</h3>
+      <p>Crea música, loops, jingles, transiciones y playlists según horario, estilo y audiencia.</p>
+    </div>
+
+    <div class="card">
+      <h3>Locutores IA</h3>
+      <p>Voces con personalidad, memoria, tono propio, horarios y capacidad de improvisar.</p>
+    </div>
+
+    <div class="card">
+      <h3>Programación automática</h3>
+      <p>La IA decide bloques, géneros, locutores, anuncios y contenido según reglas y métricas.</p>
+    </div>
+
+    <div class="card">
+      <h3>Monetización IA</h3>
+      <p>Anuncios dinámicos, clips virales, patrocinios, afiliación y campañas automáticas.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Módulos principales</h2>
+  <p class="section-desc">
+    Cada módulo puede funcionar de forma independiente, pero juntos forman un ecosistema completo.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Motor de música</h3>
+      <ul>
+        <li>Lo-fi, techno, ambient, gaming, chill.</li>
+        <li>Evita repeticiones y monotonía.</li>
+        <li>Adapta el sonido al horario.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Motor de voz</h3>
+      <ul>
+        <li>Locutores por programa.</li>
+        <li>Personalidad y estilo propio.</li>
+        <li>Mensajes entre canciones.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Motor social</h3>
+      <ul>
+        <li>Clips automáticos.</li>
+        <li>Publicación en TikTok y Shorts.</li>
+        <li>Contenido viral generado por IA.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Motor empresarial</h3>
+      <ul>
+        <li>Publicidad automática.</li>
+        <li>Radio para marcas.</li>
+        <li>Panel para empresas.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Programación inteligente</h2>
+  <p class="section-desc">
+    La parrilla cambia automáticamente según la hora y el comportamiento de los oyentes.
+  </p>
+
+  <div class="timeline">
+    <div class="slot">
+      <strong>06:00 - 10:00</strong>
+      <span>Morning Signal · música energética, titulares IA y mensajes rápidos.</span>
+    </div>
+
+    <div class="slot">
+      <strong>10:00 - 16:00</strong>
+      <span>Work Mode · música continua para trabajar, estudiar o estar en tiendas.</span>
+    </div>
+
+    <div class="slot">
+      <strong>16:00 - 21:00</strong>
+      <span>Community Mix · artistas emergentes, tendencias, gaming y cultura digital.</span>
+    </div>
+
+    <div class="slot">
+      <strong>21:00 - 06:00</strong>
+      <span>Night Signal · música nocturna, locutor calmado, ambient y reflexiones.</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Locutores IA</h2>
+  <p class="section-desc">
+    Los locutores no son simples voces: son personajes digitales con identidad propia.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>SIGNAL</h3>
+      <p>Noticias, tecnología, análisis rápido y cultura digital.</p>
+    </div>
+
+    <div class="card">
+      <h3>NYX</h3>
+      <p>Programa nocturno, música ambiental y tono reflexivo.</p>
+    </div>
+
+    <div class="card">
+      <h3>EMBER</h3>
+      <p>Artistas, comunidad, descubrimiento musical y energía emocional.</p>
+    </div>
+
+    <div class="card">
+      <h3>LOOP</h3>
+      <p>DJ automático para sesiones, gaming, techno y contenido dinámico.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Monetización</h2>
+  <p class="section-desc">
+    El sistema no solo emite: también puede crear y optimizar oportunidades de ingresos.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Anuncios IA</h3>
+      <p>Generación automática de anuncios por horario, estilo de canal y audiencia.</p>
+    </div>
+
+    <div class="card">
+      <h3>Artistas emergentes</h3>
+      <p>Promoción musical, prioridad de reproducción y estadísticas de escucha.</p>
+    </div>
+
+    <div class="card">
+      <h3>Clips virales</h3>
+      <p>Conversión automática de momentos de radio en Shorts, Reels y TikToks.</p>
+    </div>
+
+    <div class="card">
+      <h3>Radio para empresas</h3>
+      <p>Canales personalizados para hoteles, gimnasios, tiendas y marcas.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 class="section-title">Enviar música</h2>
+  <p class="section-desc">
+    Los artistas pueden enviar sus canciones para entrar en rotación automática.
+  </p>
+
+  <form>
+    <input type="text" placeholder="Nombre artístico">
+    <input type="email" placeholder="Email de contacto">
+    <input type="text" placeholder="Enlace a canción / SoundCloud / Drive">
+    <textarea placeholder="Mensaje para la emisora"></textarea>
+    <button type="button">Enviar propuesta</button>
+  </form>
+</section>
+
+<section>
+  <h2 class="section-title">Buzones de la emisora</h2>
+  <p class="section-desc">
+    La plataforma permite que los oyentes participen enviando sugerencias, noticias,
+    críticas, salseo, música y temas para que la IA los convierta en contenido.
+  </p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Buzón de sugerencias</h3>
+      <p>Ideas para mejorar programas, horarios, locutores, música o nuevas secciones.</p>
+      <form>
+        <input type="text" placeholder="Tu nombre o alias">
+        <textarea placeholder="Escribe tu sugerencia"></textarea>
+        <button type="button">Enviar sugerencia</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>Buzón de salseo</h3>
+      <p>Rumores, historias curiosas, temas virales o cosas que la comunidad quiera comentar.</p>
+      <form>
+        <input type="text" placeholder="Tu alias">
+        <textarea placeholder="Cuenta el salseo"></textarea>
+        <button type="button">Enviar salseo</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>Buzón de noticias</h3>
+      <p>Noticias locales, tecnología, cultura digital, música, eventos o actualidad.</p>
+      <form>
+        <input type="text" placeholder="Titular o tema">
+        <input type="text" placeholder="Enlace de la noticia">
+        <textarea placeholder="Resumen o contexto"></textarea>
+        <button type="button">Enviar noticia</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h3>Buzón de críticas</h3>
+      <p>Opiniones sobre la radio, canciones, locutores IA, secciones o funcionamiento.</p>
+      <form>
+        <input type="text" placeholder="Tu nombre o alias">
+        <textarea placeholder="Escribe tu crítica o valoración"></textarea>
+        <button type="button">Enviar crítica</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Signal AI Media · Plataforma autónoma de medios impulsada por inteligencia artificial
+</footer>
+
+</body>
+</html>
